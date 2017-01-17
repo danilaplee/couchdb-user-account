@@ -160,7 +160,7 @@ Account.prototype.register = function(acct, cb) {
   // clone incoming object
   var user = _.clone(acct)
   // extend with doc attributes
-  _(user).extend({ type: 'user'})
+  _(user).extend({ type: 'user', roles: acct["roles"]})
   // create security document
   var security = {
     admins: { roles: ['admins'], names: [user.name]},
