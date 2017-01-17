@@ -148,7 +148,7 @@ Account.prototype.register = function(acct, cb) {
   // acct must be object
   if (!_.isObject(acct)) { return cb(new Error('acct should be an object!')) }
   // required attributes
-  var attributes = ['name', 'password', 'email']
+  var attributes = ['name', 'password', 'email', "roles"]
   var errors = _(attributes).reduce(function(valid, attr) {
     if (!_(acct).has('name')) {
       return valid.push(attr + ' is required!')
@@ -160,11 +160,11 @@ Account.prototype.register = function(acct, cb) {
   // clone incoming object
   var user = _.clone(acct)
   // extend with doc attributes
-  _(user).extend({ type: 'user', roles: ['account']})
+  _(user).extend({ type: 'user'})
   // create security document
   var security = {
-    admins: { roles: [], names: []},
-    members: { roles: ['admins'], names: [user.name]}
+    admins: { roles: ['admins'], names: [user.name]},
+    members: { roles: [], names: []}
   }
   // execute a series of db cmds
   async.series([
