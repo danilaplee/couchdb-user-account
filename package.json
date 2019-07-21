@@ -1,5 +1,5 @@
 {
-  "name": "couchdb-user-account",
+  "name": "couchdb-user-accounts",
   "version": "0.0.0",
   "description": "A couchdb user account library for user per database pattern",
   "main": "index.js",
@@ -17,9 +17,9 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/twilson63/couchdb-user-account.git"
+    "url": "git+https://github.com/danilaplee/couchdb-user-account.git"
   },
-  "author": "Tom",
+  "author": "danilaplee",
   "license": "MIT",
   "dependencies": {
     "async": "^0.9.0",
